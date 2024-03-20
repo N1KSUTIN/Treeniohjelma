@@ -1,335 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viikon treeniohjelma</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-        }
-        h2 {
-            color: #333;
-        }
-        .exercise {
-            margin-bottom: 40px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #333;
-            color: #fff;
-        }
-        td button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        td button:hover {
-            background-color: #555;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treeniohjelma</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+    }
+
+    h1, h2, h3 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #222;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #444;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #333;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #222;
+    }
+</style>
 </head>
 <body>
-    <h1>Viikon treeniohjelma</h1>
+<h1>MAANANTAI - SELKÄ JA HAUIKSET</h1>
 
-    <h2>Maanantai - Selkä ja Hauikset</h2>
-    <div class="exercise">
-        <h3>Selkä</h3>
-        <table id="selkaTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Ylätalja</td>
-                <td>3x10</td>
-                <td id="ylataljaWeight">20</td>
-                <td><button onclick="addWeight(this, 'ylataljaWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Kulmasoutu</td>
-                <td>3x10</td>
-                <td id="kulmasoutuWeight">15</td>
-                <td><button onclick="addWeight(this, 'kulmasoutuWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Leuanveto</td>
-                <td>3x8</td>
-                <td id="leuanvetoWeight">10</td>
-                <td><button onclick="addWeight(this, 'leuanvetoWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<div class="exercise">
+    <h2>SELKÄ</h2>
+    <table>
+        <tr>
+            <th>LIIKE</th>
+            <th>SARJAT X TOISTOT</th>
+            <th>SARJAPAINO (KG)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Ylätalja</td>
+            <td>3x10</td>
+            <td id="ylataljaWeight">30</td>
+            <td><button onclick="addWeight('ylataljaWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('ylataljaWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Alatalja</td>
+            <td>3x12</td>
+            <td id="alataljaWeight">25</td>
+            <td><button onclick="addWeight('alataljaWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('alataljaWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Kulmasoutu käsipainoilla</td>
+            <td>3x12</td>
+            <td id="kulmasoutuWeight">15</td>
+            <td><button onclick="addWeight('kulmasoutuWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('kulmasoutuWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+    </table>
+</div>
 
-    <div class="exercise">
-        <h3>Hauikset</h3>
-        <table id="hauiksetTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Käsipainon kääntö</td>
-                <td>3x12</td>
-                <td id="kasiWeight">10</td>
-                <td><button onclick="addWeight(this, 'kasiWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Scott-tanko</td>
-                <td>3x10</td>
-                <td id="scottWeight">15</td>
-                <td><button onclick="addWeight(this, 'scottWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Hauiskääntö</td>
-                <td>3x12</td>
-                <td id="hauiskWeight">12.5</td>
-                <td><button onclick="addWeight(this, 'hauiskWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<div class="exercise">
+    <h2>HAUIKSET</h2>
+    <table>
+        <tr>
+            <th>LIIKE</th>
+            <th>SARJAT X TOISTOT</th>
+            <th>SARJAPAINO (KG)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Hammer kääntö istuen</td>
+            <td>3x12</td>
+            <td id="hammerkaantoWeight">10</td>
+            <td><button onclick="addWeight('hammerkaantoWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('hammerkaantoWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Hauiskääntö vinopenkissä</td>
+            <td>3x10</td>
+            <td id="hauiskaantoWeight">15</td>
+            <td><button onclick="addWeight('hauiskaantoWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('hauiskaantoWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Tuettu hauiskääntö penkillä</td>
+            <td>3x12</td>
+            <td id="tuettuHauiskaantoWeight">10</td>
+            <td><button onclick="addWeight('tuettuHauiskaantoWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('tuettuHauiskaantoWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+    </table>
+</div>
 
-    <h2>Keskiviikko - Ojentajat ja Olkapäät</h2>
-    <div class="exercise">
-        <h3>Ojentajat</h3>
-        <table id="ojentajatTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Penkkipunnerrus käsipainoilla</td>
-                <td>3x10</td>
-                <td id="penkkipunnerrusWeight">20</td>
-                <td><button onclick="addWeight(this, 'penkkipunnerrusWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Ranskalainen punnerrus</td>
-                <td>3x10</td>
-                <td id="ranskalainenWeight">15</td>
-                <td><button onclick="addWeight(this, 'ranskalainenWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Dippi</td>
-                <td>3x8</td>
-                <td id="dippiWeight">10</td>
-                <td><button onclick="addWeight(this, 'dippiWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<h1>KESKIVIIKKO - OJENTAJAT, RINTA JA OLKAPÄÄT</h1>
 
-    <div class="exercise">
-        <h3>Olkapäät</h3>
-        <table id="olkapaatTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Pystypunnerrus</td>
-                <td>3x10</td>
-                <td id="pystypunnerrusWeight">20</td>
-                <td><button onclick="addWeight(this, 'pystypunnerrusWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Sivuviparit</td>
+<div class="exercise">
+    <h2>OJENTAJAT</h2>
+    <table>
+        <tr>
+            <th>LIIKE</th>
+            <th>SARJAT X TOISTOT</th>
+            <th>SARJAPAINO (KG)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Ojennus taljassa</td>
+            <td>3x12</td>
+            <td id="ojennustaljassaWeight">20</td>
+            <td><button onclick="addWeight('ojennustaljassaWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('ojennustaljassaWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Dippi laitteessa</td>
+            <td>3x10</td>
+            <td id="dippiWeight">15</td>
+            <td><button onclick="addWeight('dippiWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('dippiWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Flyes laitteessa ojentajat</td>
+            <td>3x12</td>
+            <td id="flyesWeight">10</td>
+            <td><button onclick="addWeight('flyesWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('flyesWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+    </table>
+</div>
 
-                <td>3x12</td>
-                <td id="sivuviparitWeight">7.5</td>
-                <td><button onclick="addWeight(this, 'sivuviparitWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Käsipainon nosto</td>
-                <td>3x12</td>
-                <td id="kasiNostoWeight">10</td>
-                <td><button onclick="addWeight(this, 'kasiNostoWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<!-- JATKA TÄSTÄ KESKIVIIKKON LISONJAA VASTAAVASTI PERJANTAIHIN -->
 
-    <h2>Perjantai - Jalat ja Vatsat</h2>
-    <div class="exercise">
-        <h3>Jalat</h3>
-        <table id="jalatTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Kyykky</td>
-                <td>4x8</td>
-                <td id="kyykkyWeight">60</td>
-                <td><button onclick="addWeight(this, 'kyykkyWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Jalkaprässi</td>
-                <td>3x10</td>
-                <td id="jalapressWeight">80</td>
-                <td><button onclick="addWeight(this, 'jalapressWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Hack-kyykky</td>
-                <td>3x12</td>
-                <td id="hackkyykkyWeight">40</td>
-                <td><button onclick="addWeight(this, 'hackkyykkyWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Maastaveto</td>
-                <td>3x8</td>
-                <td id="maastavetoWeight">70</td>
-                <td><button onclick="addWeight(this, 'maastavetoWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<h1>PERJANTAI - JALAT JA VATSAT</h1>
 
-    <div class="exercise">
-        <h3>Vatsat</h3>
-        <table id="vatsatTable">
-            <tr>
-                <th>Liike</th>
-                <th>Sarjat x Toistot</th>
-                <th>Sarjapaino (kg)</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Pendulum</td>
-                <td>3x15</td>
-                <td id="pendulumWeight">0</td>
-                <td><button onclick="addWeight(this, 'pendulumWeight')">Lisää painoa</button></td>
-            </tr>
-            <tr>
-                <td>Rutistus</td>
-                <td>3x20</td>
-                <td id="rutistusWeight">0</td>
-                <td><button onclick="addWeight(this, 'rutistusWeight')">Lisää painoa</button></td>
-            </tr>
-        </table>
-    </div>
+<div class="exercise">
+    <h2>JALAT</h2>
+    <table>
+        <tr>
+            <th>LIIKE</th>
+            <th>SARJAT X TOISTOT</th>
+            <th>SARJAPAINO (KG)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Kyykky</td>
+            <td>4x8</td>
+            <td id="kyykkyWeight">60</td>
+            <td><button onclick="addWeight('kyykkyWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('kyykkyWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Prässi</td>
+            <td>4x10</td>
+            <td id="prassiWeight">100</td>
+            <td><button onclick="addWeight('prassiWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('prassiWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Etureisi ojentajat</td>
+            <td>4x12</td>
+            <td id="etureisiWeight">40</td>
+            <td><button onclick="addWeight('etureisiWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('etureisiWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Takareidet makuulla</td>
+            <td>4x10</td>
+            <td id="takareidetWeight">50</td>
+            <td><button onclick="addWeight('takareidetWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('takareidetWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Bulgarialainen kyykky (vapaaehtoinen)</td>
+            <td>3x10</td>
+            <td id="bulgarialainenWeight">20</td>
+            <td><button onclick="addWeight('bulgarialainenWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('bulgarialainenWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+    </table>
+</div>
 
-    <script>
-        // Funktio lisää painoa ja tallentaa sen LocalStorageen
-        function addWeight(button, weightId) {
-            var row = button.parentNode.parentNode;
-            var weightCell = row.cells[2];
-            var currentWeight = parseFloat(weightCell.innerText);
-            if (!isNaN(currentWeight)) {
-                currentWeight += 2.5;
-                weightCell.innerText = currentWeight;
-                // Tallennetaan sarjapaino LocalStorageen
-                localStorage.setItem(weightId, currentWeight);
-            }
+<div class="exercise">
+    <h2>VATSAT</h2>
+    <table>
+        <tr>
+            <th>LIIKE</th>
+            <th>SARJAT X TOISTOT</th>
+            <th>SARJAPAINO (KG)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Lankutus</td>
+            <td>3x30s</td>
+            <td id="lankutusWeight">0</td>
+            <td><button onclick="addWeight('lankutusWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('lankutusWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Jalkojen nosto</td>
+            <td>3x15</td>
+            <td id="jalkojennostoWeight">0</td>
+            <td><button onclick="addWeight('jalkojennostoWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('jalkojennostoWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+        <tr>
+            <td>Rutistukset</td>
+            <td>3x20</td>
+            <td id="rutistuksetWeight">0</td>
+            <td><button onclick="addWeight('rutistuksetWeight')">LISÄÄ PAINOA</button><button onclick="subtractWeight('rutistuksetWeight')">VÄHENNÄ PAINOA</button></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function addWeight(weightId) {
+        var weightCell = document.getElementById(weightId);
+        var currentWeight = parseFloat(weightCell.innerText);
+        if (!isNaN(currentWeight)) {
+            currentWeight += 2.5;
+            weightCell.innerText = currentWeight;
+            localStorage.setItem(weightId, currentWeight);
+        }
+    }
+
+    function subtractWeight(weightId) {
+        var weightCell = document.getElementById(weightId);
+        var currentWeight = parseFloat(weightCell.innerText);
+        if (!isNaN(currentWeight) && currentWeight >= 2.5) {
+            currentWeight -= 2.5;
+            weightCell.innerText = currentWeight;
+            localStorage.setItem(weightId, currentWeight);
+        }
+    }
+
+    // Load weights when the page loads
+    window.onload = function() {
+        // Load weights for maanantai exercises
+        var ylataljaWeight = localStorage.getItem('ylataljaWeight');
+        if (ylataljaWeight !== null) {
+            document.getElementById('ylataljaWeight').innerText = ylataljaWeight;
+        }
+        var alataljaWeight = localStorage.getItem('alataljaWeight');
+        if (alataljaWeight !== null) {
+            document.getElementById('alataljaWeight').innerText = alataljaWeight;
+        }
+        var kulmasoutuWeight = localStorage.getItem('kulmasoutuWeight');
+        if (kulmasoutuWeight !== null) {
+            document.getElementById('kulmasoutuWeight').innerText = kulmasoutuWeight;
         }
 
-        // Tarkistetaan, onko sarjapaino tallennettu LocalStorageen ja palautetaan se
-        function loadWeights() {
-            var ylataljaWeight = localStorage.getItem('ylataljaWeight');
-            if (ylataljaWeight !== null) {
-                document.getElementById('ylataljaWeight').innerText = ylataljaWeight;
-            }
-            var kulmasoutuWeight = localStorage.getItem('kulmasoutuWeight');
-            if (kulmasoutuWeight !== null) {
-                document.getElementById('kulmasoutuWeight').innerText = kulmasoutuWeight;
-            }
-            var leuanvetoWeight = localStorage.getItem('leuanvetoWeight');
-            if (leuanvetoWeight !== null) {
-                document.getElementById('leuanvetoWeight').innerText = leuanvetoWeight;
-            }
-            var kasiWeight = localStorage.getItem('kasiWeight');
-            if (kasiWeight !== null) {
-                document.getElementById('kasiWeight').innerText = kasiWeight;
-            }
-            var scottWeight = localStorage.getItem('scottWeight');
-            if (scottWeight !== null) {
-                document.getElementById('scottWeight').innerText = scottWeight;
-            }
-            var hauiskWeight = localStorage.getItem('hauiskWeight');
-            if (hauiskWeight !== null) {
-                document.getElementById('hauiskWeight').innerText = hauiskWeight;
-            }
-            var penkkipunnerrusWeight = localStorage.getItem('penkkipunnerrusWeight');
-            if (penkkipunnerrusWeight !== null) {
-                document.getElementById('penkkipunnerrusWeight').innerText = penkkipunnerrusWeight;
-            }
-            var ranskalainenWeight = localStorage.getItem('ranskalainenWeight');
-            if (ranskalainenWeight !== null) {
-                document.getElementById('ranskalainenWeight').innerText = ranskalainenWeight;
-            }
-            var dippiWeight = localStorage.getItem('dippiWeight');
-            if (dippiWeight !== null) {
-                document.getElementById('dippiWeight').innerText = dippiWeight;
-            }
-            var pystypunnerrusWeight = localStorage.getItem('pystypunnerrusWeight');
-            if (pystypunnerrusWeight !== null) {
-                document.getElementById('pystypunnerrusWeight').innerText = pystypunnerrusWeight;
-            }
-            var sivuviparitWeight = localStorage.getItem('sivuviparitWeight');
-            if (sivuviparitWeight !== null) {
-                document.getElementById('sivuviparitWeight').innerText = sivuviparitWeight;
-            }
-            var kasiNostoWeight = localStorage.getItem('kasiNostoWeight');
-            if (kasiNostoWeight !== null) {
-                document.getElementById('kasiNostoWeight').innerText = kasiNostoWeight;
-            }
-            var kyykkyWeight = localStorage.getItem('kyykkyWeight');
-            if (kyykkyWeight !== null) {
-                document.getElementById('kyykkyWeight').innerText = kyykkyWeight;
-            }
-            var
-            jalapressWeight = localStorage.getItem('jalapressWeight');
-            if (jalapressWeight !== null) {
-                document.getElementById('jalapressWeight').innerText = jalapressWeight;
-            }
-            var hackkyykkyWeight = localStorage.getItem('hackkyykkyWeight');
-            if (hackkyykkyWeight !== null) {
-                document.getElementById('hackkyykkyWeight').innerText = hackkyykkyWeight;
-            }
-            var maastavetoWeight = localStorage.getItem('maastavetoWeight');
-            if (maastavetoWeight !== null) {
-                document.getElementById('maastavetoWeight').innerText = maastavetoWeight;
-            }
-            var pendulumWeight = localStorage.getItem('pendulumWeight');
-            if (pendulumWeight !== null) {
-                document.getElementById('pendulumWeight').innerText = pendulumWeight;
-            }
-            var rutistusWeight = localStorage.getItem('rutistusWeight');
-            if (rutistusWeight !== null) {
-                document.getElementById('rutistusWeight').innerText = rutistusWeight;
-            }
+        var hammerkaantoWeight = localStorage.getItem('hammerkaantoWeight');
+        if (hammerkaantoWeight !== null) {
+            document.getElementById('hammerkaantoWeight').innerText = hammerkaantoWeight;
+        }
+        var hauiskaantoWeight = localStorage.getItem('hauiskaantoWeight');
+        if (hauiskaantoWeight !== null) {
+            document.getElementById('hauiskaantoWeight').innerText = hauiskaantoWeight;
+        }
+        var tuettuHauiskaantoWeight = localStorage.getItem('tuettuHauiskaantoWeight');
+        if (tuettuHauiskaantoWeight !== null) {
+            document.getElementById('tuettuHauiskaantoWeight').innerText = tuettuHauiskaantoWeight;
         }
 
-        // Ladataan sarjapainot kun sivu ladataan
-        window.onload = loadWeights;
-    </script>
+        // Load weights for keskiviikko exercises
+        var ojennustaljassaWeight = localStorage.getItem('ojennustaljassaWeight');
+        if (ojennustaljassaWeight !== null) {
+            document.getElementById('ojennustaljassaWeight').innerText = ojennustaljassaWeight;
+        }
+        var dippiWeight = localStorage.getItem('dippiWeight');
+        if (dippiWeight !== null) {
+            document.getElementById('dippiWeight').innerText = dippiWeight;
+        }
+        var flyesWeight = localStorage.getItem('flyesWeight');
+        if (flyesWeight !== null) {
+            document.getElementById('flyesWeight').innerText = flyesWeight;
+        }
+
+        // Load weights for perjantai exercises
+        var kyykkyWeight = localStorage.getItem('kyykkyWeight');
+        if (kyykkyWeight !== null) {
+            document.getElementById('kyykkyWeight').innerText = kyykkyWeight;
+        }
+        var prassiWeight = localStorage.getItem('prassiWeight');
+        if (prassiWeight !== null) {
+            document.getElementById('prassiWeight').innerText = prassiWeight;
+        }
+        var etureisiWeight = localStorage.getItem('etureisiWeight');
+        if (etureisiWeight !== null) {
+            document.getElementById('etureisiWeight').innerText = etureisiWeight;
+        }
+        var takareidetWeight = localStorage.getItem('takareidetWeight');
+        if (takareidetWeight !== null) {
+            document.getElementById('takareidetWeight').innerText = takareidetWeight;
+        }
+        var bulgarialainenWeight = localStorage.getItem('bulgarialainenWeight');
+        if (bulgarialainenWeight !== null) {
+            document.getElementById('bulgarialainenWeight').innerText = bulgarialainenWeight;
+        }
+        var lankutusWeight = localStorage.getItem('lankutusWeight');
+        if (lankutusWeight !== null) {
+            document.getElementById('lankutusWeight').innerText = lankutusWeight;
+        }
+        var jalkojennostoWeight = localStorage.getItem('jalkojennostoWeight');
+        if (jalkojennostoWeight !== null) {
+            document.getElementById('jalkojennostoWeight').innerText = jalkojennostoWeight;
+        }
+        var rutistuksetWeight = localStorage.getItem('rutistuksetWeight');
+        if (rutistuksetWeight !== null) {
+            document.getElementById('rutistuksetWeight').innerText = rutistuksetWeight;
+        }
+    }
+</script>
+
 </body>
 </html>
+
+
+
+
 
